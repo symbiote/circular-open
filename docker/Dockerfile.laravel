@@ -1,0 +1,7 @@
+FROM symbiote/php-cli:7.4
+
+RUN composer global require "laravel/installer=~1.1"
+
+RUN docker-php-ext-install exif
+
+RUN echo "memory_limit=3G" > /usr/local/etc/php/conf.d/memory.ini

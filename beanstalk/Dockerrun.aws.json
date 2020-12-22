@@ -1,0 +1,57 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "volumes": [
+        {
+            "name": "sqlite-database",
+            "host": {
+                "sourcePath": "/var/app/database"
+            }
+        },
+        {
+            "name": "assets",
+            "host": {
+                "sourcePath": "/var/app/assets"
+            }
+        }
+    ],
+    "containerDefinitions": [
+        {
+            "name": "app",
+            "image": "nyeholt/demosite:latest",
+            "environment": [
+                {
+                    "name": "Container",
+                    "value": "PHPApache"
+                }
+            ],
+            "essential": true,
+            "memory": 256,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                },
+                {
+                    "hostPort": 443,
+                    "containerPort": 443
+                }
+            ],
+            "mountPoints": [
+                {
+                    "sourceVolume": "awseb-logs-app",
+                    "containerPath": "/var/log/silverstripe"
+                },
+                {
+                    "sourceVolume": "sqlite-database",
+                    "containerPath": "/var/www/html/build/database",
+                    "readOnly": false
+                },
+                {
+                    "sourceVolume": "assets",
+                    "containerPath": "/var/www/html/public/assets",
+                    "readOnly": false
+                }
+            ]
+        }
+    ]
+}

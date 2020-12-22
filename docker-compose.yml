@@ -1,0 +1,83 @@
+version: '2'
+services:
+  apache:
+    image: "symbiote/apache2:7.4"
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.apache
+    # depends_on: 
+    #   - mysql
+    ports:
+      - "80:80"
+      - "443:443"
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+      - ${DOCKER_PROJECT_PATH}/logs:/var/log/apache2
+  php:
+    image: "symbiote/php-laravel:7.4"
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.laravel
+    volumes:
+      - '.:/var/www/html'
+      - ${DOCKER_PROJECT_PATH}/logs:/var/log/php
+      - ${DOCKER_PROJECT_PATH}/logs:/var/log/silverstripe
+      - ${DOCKER_SHARED_PATH}/composer-cache:/usr/local/composer/cache
+      - $SSH_AUTH_SOCK:/tmp/ssh_agent_socket
+      - ${DOCKER_SSH_VOLUME}
+    environment:
+      SSH_AUTH_SOCK: "/tmp/ssh_agent_socket"
+      GIT_COMMIT: ${CI_COMMIT_SHA}
+      GIT_BRANCH: ${CI_COMMIT_REF_SLUG}
+      COMPOSER_PROCESS_TIMEOUT: ${DOCKER_COMPOSER_TIMEOUT}
+    # Enable xdebug via the env var DOCKER_PHP_COMMAND.
+    # Note: there needs to be an '&&' at the end.
+    command: bash -c "${DOCKER_PHP_COMMAND} php-fpm"
+
+  adminer: 
+    image: "adminer:4.6-standalone"
+    environment:
+      ADMINER_DESIGN: nette
+      ADMINER_DEFAULT_SERVER: mysql
+    links:
+      - mysql:mysql
+    ports:
+      - "8080:8080"
+
+  mysql:
+    image: "mysql:${DOCKER_MYSQL_VERSION}"
+    ports:
+      - "3306:3306"
+    volumes:
+      - "${DOCKER_PROJECT_PATH}/mysql-data:/var/lib/mysql"
+    environment:
+        MYSQL_ROOT_PASSWORD: "password"
+        MYSQL_ROOT_HOST: "%"
+    # Fixes MySQL has gone away issues with small default packet size, also fixes BLOB/TEXT exceeding 10% of log size issue
+    command: mysqld --max_allowed_packet=64M --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --innodb-log-file-size=64M
+
+  redis:
+    image: "redis:3.2-alpine"
+    ports:
+      - "6379:6379"
+    volumes:
+      - ${DOCKER_PROJECT_PATH}/redis-data:/data
+
+  elastic:
+    image: "docker.elastic.co/elasticsearch/elasticsearch:5.3.3"
+    ports: 
+      - "9200:9200"
+    environment:
+      - "http.host=0.0.0.0"
+      - "transport.host=127.0.0.1"
+      - "xpack.security.enabled=false"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - ${DOCKER_PROJECT_PATH}/elastic-data:/usr/share/elasticsearch/data
+
+  mailhog:
+    image: "mailhog/mailhog:v1.0.0"
+    ports:
+      - "1025:1025"
+      - "8025:8025"

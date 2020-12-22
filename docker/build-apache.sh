@@ -1,0 +1,1 @@
+docker build -f Dockerfile.apache -t nyeholt/apache2 .
