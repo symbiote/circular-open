@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f8400fd8fa42281d23ba8551828ad2e",
+    "content-hash": "da9dd5d7447d87c77a2d9e7a8e203c16",
     "packages": [
         {
             "name": "anomaly/addon-field_type",
@@ -2941,6 +2941,50 @@
                 "source": "https://github.com/anomalylabs/variables-module"
             },
             "time": "2019-03-13T16:41:19+00:00"
+        },
+        {
+            "name": "anomaly/video-field_type",
+            "version": "v1.1.23",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/anomalylabs/video-field_type.git",
+                "reference": "306b2686d3c43a92c85ff0340cbdbb2077800807"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/anomalylabs/video-field_type/zipball/306b2686d3c43a92c85ff0340cbdbb2077800807",
+                "reference": "306b2686d3c43a92c85ff0340cbdbb2077800807",
+                "shasum": ""
+            },
+            "type": "streams-addon",
+            "autoload": {
+                "psr-4": {
+                    "Anomaly\\VideoFieldType\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PyroCMS, Inc.",
+                    "email": "support@pyrocms.com",
+                    "homepage": "http://pyrocms.com/",
+                    "role": "Owner"
+                }
+            ],
+            "description": "The video field type provides a simple input for displaying embeddable videos from your favorite provider.",
+            "homepage": "http://pyrocms.com/",
+            "keywords": [
+                "field type",
+                "field type",
+                "pyrocms addon"
+            ],
+            "support": {
+                "email": "support@pyrocms.com",
+                "source": "https://github.com/anomalylabs/video-field_type/tree/v1.1.23"
+            },
+            "time": "2020-04-08T15:50:43+00:00"
         },
         {
             "name": "anomaly/wysiwyg-field_type",
