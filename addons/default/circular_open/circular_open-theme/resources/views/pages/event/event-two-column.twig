@@ -1,0 +1,15 @@
+
+<div class="row">
+    {% for event in block.event_list %}
+        <div class="card">
+            {{ img(event.image).class('img-responsive')|raw }}
+            <h2>{{ event.title }}</h2>
+            <p>{{ event.price }} | {{ event.date.date() }} | {{ event.time }}</p>
+            {{ event.event_details|raw }}
+            <div class="link">
+                <a href="{{event.cta_link }}">{{event.cta_label}}</a>
+            </div>
+        </div>
+    {% endfor %}
+
+</div>

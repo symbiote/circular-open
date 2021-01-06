@@ -1,0 +1,3 @@
+{% set events = entries('events','events_list').find(request_segments()|last) %}
+
+<h1>{{ events.event_title }}</h1>

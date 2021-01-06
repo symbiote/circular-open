@@ -1,0 +1,9 @@
+<span class="h1">{{ block.title }}</span>
+<div class="row">
+{% for col in block.designer_list %}
+   <div class="col-12 col-md-4">
+    <h4><a href="{{ url_route('pages::3.en') }}/view/{{ str_slug(col.name) }}/{{ col.id }}">{{ col.name }}</a></h4>
+    {{ col.role }}
+    </div>
+{% endfor %}
+</div>
