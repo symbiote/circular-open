@@ -1,0 +1,13 @@
+{% set team = entries('designer', 'designers').get() %}
+
+<div class="row">
+    <div class="row">
+        {% for card in team %}
+        <div class="col-6 col-md-3">
+           {{ img(card.image).class('img-responsive')|raw }}
+           <h4>{{ card.name }}</h4>
+           <p>{{ card.role }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
