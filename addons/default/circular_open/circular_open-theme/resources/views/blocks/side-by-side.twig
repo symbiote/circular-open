@@ -1,9 +1,10 @@
+{% set align_right = (block.switch_position.true) ? 'order-2' : '' %}
 <div class="row">
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6 {{ align_right }}">
         {{ img(block.image).class('img-responsive')|raw }}
         {# {{ block.photo.make.fit(200, 200)|raw }} #}
     </div>
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6 ">
         <span class="h1">{{ block.title }}</span>
         <p>{{ block.blurb|raw }}</p>
         {{ block.content|raw }}

@@ -1,6 +1,7 @@
-{{block.title}}
-{{ block.content|raw }}
-
-{% if block.cta_link|length %}
-    <a href="{{ block.cta_label }}" class="btn btn-primary">{{ block.cta_label|length ? block.cta_label : 'More info' }}</a>
-{% endif %}
+{% set bg = (block.switch_background.true) ? 'banner--white' : '' %}
+<div class="banner {{ bg }}">
+    {{ block.content|raw }}
+    {% if block.cta_link|length %}
+        <a href="{{ block.cta_label }}" class="btn btn-primary">{{ block.cta_label|length ? block.cta_label : 'More info' }}</a>
+    {% endif %}
+</div>
