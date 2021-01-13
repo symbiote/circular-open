@@ -1,11 +1,22 @@
-@import "../../../node_modules/bootstrap/scss/mixins";
-@import "../../../node_modules/bootstrap/scss/functions";
-@import "../../../node_modules/bootstrap/scss/variables";
+// Bootstrap
+@import "bootstrap/bootstrap";
 
-@import "mixins";
-@import "variables";
+// Import variables
+@import "variables/colors";
+@import "variables/fonts";
+@import "variables/settings";
 
-@import "components/reset";
+// Mixins
+@import "other/mixins";
 
-@import "layout/main";
-@import "layout/footer";
+@import "other/normalize";
+
+// Import atoms
+@import "atoms/typography";
+@import "atoms/images";
+
+// Import molecules
+
+// Import organisms
+@import "organisms/navigation";
+@import "organisms/footer";
