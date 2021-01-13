@@ -6,12 +6,12 @@
 @import "variables/fonts";
 @import "variables/settings";
 
-// Mixins
-@import "other/mixins";
-
-@import "other/normalize";
 
 // Import atoms
+@import "atoms/layout";
+@import "atoms/mixins";
+@import "atoms/normalize";
+@import "atoms/layout";
 @import "atoms/typography";
 @import "atoms/images";
 
