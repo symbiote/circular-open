@@ -1,4 +1,6 @@
-<?php namespace CircularOpen\CircularOpenTheme;
+<?php
+
+namespace CircularOpen\CircularOpenTheme;
 
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
 use Illuminate\Routing\Router;
@@ -117,6 +119,8 @@ class CircularOpenThemeServiceProvider extends AddonServiceProvider
      * @type array|null
      */
     protected $overrides = [
+        'anomaly.extension.wysiwyg_block::content' => 'circular_open.theme.circular_open::blocks/wysiwyg/content',
+        'anomaly.module.blocks::blocks/wrapper' => 'circular_open.theme.circular_open::blocks/wysiwyg/wrapper'
         //'streams::errors/404' => 'module::errors/404',
         //'streams::errors/500' => 'module::errors/500',
     ];
@@ -159,5 +163,4 @@ class CircularOpenThemeServiceProvider extends AddonServiceProvider
         // Register dynamic routes here for example.
         // Use method injection or commands to bring in services.
     }
-
 }
