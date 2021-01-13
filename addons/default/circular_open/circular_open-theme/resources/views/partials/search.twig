@@ -1,27 +1,4 @@
-
-{% set q = request_get("q") %}
-{# {% set query = entries("posts", "posts") %} #}
-{% set results = search(q).in(['pages.pages', 'event.events', 'designer.designers']).paginate(0) %}
-{# {% set results = results.orderBy("publish_at","desc").paginate(0) %} #}
-
-{% if q %}
-    {% for result in results %}
-        {% if result.entry.stream.namespace == 'pages' %}
-            {% set link = result.entry.slug %}
-        {% endif %}
-
-        {% if result.entry.stream.namespace == 'event' %}
-            {% set link = result.entry.cta_link|raw %}
-        {% endif %}
-
-        {% if result.entry.stream.namespace == 'designer' %}
-            {% set link =  url_route('pages::4.en') ~ '/' ~ str_slug(result.entry.name) ~ '/' ~ result.entry.id %}
-        {% endif %}
-        <a href="{{ link }}">{{ result.entry.title }}: {{ result.entry.id }}</a>
-    {% endfor %}
-{% endif %}
-
-<form action="" id="search">
+<form action="/search" id="search">
     <input type="text" name="q" placeholder="search">
     <input type="submit">
 </form>
