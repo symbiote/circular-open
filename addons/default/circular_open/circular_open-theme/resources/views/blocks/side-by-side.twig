@@ -1,11 +1,11 @@
 {% set align_right = (block.switch_position.true) ? 'order-2' : '' %}
 <div class="row">
-    <div class="col-12 col-md-6 {{ align_right }}">
+    <div class="col-12 col-md-7">
         {{ img(block.image).class('img-responsive')|raw }}
         {# {{ block.photo.make.fit(200, 200)|raw }} #}
     </div>
-    <div class="col-12 col-md-6 ">
-        <span class="h1">{{ block.title }}</span>
+    <div class="col-12 col-md-4 offset-md-1">
+        <h1>{{ block.title }}</h1>
         <p>{{ block.blurb|raw }}</p>
         {{ block.content|raw }}
         {% if block.cta_link %}
