@@ -14,11 +14,9 @@ fi
 
 #handle env vars
 if [ -z "$DOCKER_YARN_PATH" ]; then
-    DOCKER_YARN_PATH="themes/"
+    DOCKER_YARN_PATH="addons/default/circular_open/circular_open-theme"
 fi
-if [ -z "$DOCKER_CLISCRIPT_PATH" ]; then
-    DOCKER_CLISCRIPT_PATH="framework/cli-script.php"
-fi
+
 if [ -z "$DOCKER_EXEC_IDS" ]; then
     DOCKER_EXEC_IDS="`id -u`:`id -g`"
 fi
@@ -42,21 +40,9 @@ in
         CONTAINER="php"
         ACTION="composer"
         ;;
-    sspak)
-        CONTAINER="php"
-        ACTION="sspak"
-        ;;
     phing)
         CONTAINER="php"
         ACTION="phing"
-        ;;
-    codecept)
-        CONTAINER="php"
-        ACTION="vendor/bin/codecept"
-        ;;
-    task)
-        CONTAINER="php"
-        ACTION="task"
         ;;
     fpm)
         CONTAINER="php"
@@ -74,9 +60,6 @@ in
         CONTAINER="mysql"
         ACTION="mysql"
         RUN_OPTS="-i"
-        ;;
-    sel)
-        CONTAINER="selenium"
         ;;
     node)
         CONTAINER="node"
@@ -114,7 +97,7 @@ if [ $ACTION = "help" ]; then
     echo ""
     echo "[args]      : free-form - will be passed as-is to the container"
     echo ""
-    echo "commands    : { composer | sspak | phing | codecept | task | fpm"
+    echo "commands    : { composer | fpm"
     echo "              | fpmreload | mysqlimport | yarn | fixperms | help }"
     echo ""
     echo "See the readme for more information:"
@@ -182,8 +165,6 @@ else
     echo "Running command $ACTION in $CONTAINER" && shift
     if [ "yarn" = $CMD ]; then
         docker exec ${RUN_OPTS} -u ${DOCKER_EXEC_IDS} ${CONTAINER_NAME} bash -c "cd $DOCKER_YARN_PATH; yarn $*"
-    elif [ "task" = $CMD ]; then
-        docker exec ${RUN_OPTS} -u ${DOCKER_EXEC_IDS} ${CONTAINER_NAME} bash -c "php $DOCKER_CLISCRIPT_PATH dev/tasks/$@"
     elif [ "mysqlimport" = $CMD ]; then
         docker exec ${RUN_OPTS} -u ${DOCKER_EXEC_IDS} ${CONTAINER_NAME} ${ACTION} "$@" < /proc/$$/fd/0
     elif [ "fpmreload" = $CMD ]; then

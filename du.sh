@@ -77,18 +77,6 @@ if [ -z "$DOCKER_COMPOSER_TIMEOUT" ]; then
     echo "Setting DOCKER_COMPOSER_TIMEOUT to 300"
 fi
 
-#handle solr dir/perms
-case "$CONTAINERS" in
-    *solr*)
-        if [ -d ${DOCKER_PROJECT_PATH}/solr-data ]; then
-            echo "Solr data dir found, if solr does _NOT_ start, please sudo chown 8983:8983 ${DOCKER_SHARED_PATH}/solr-data"
-        else
-            echo "Creating solr data-dir, sudo chown'd as the solr user (8983)"
-            mkdir ${DOCKER_PROJECT_PATH}/solr-data
-            sudo chown 8983:8983 ${DOCKER_PROJECT_PATH}/solr-data
-        fi
-    ;;
-esac
 
 #export all docker vars
 export DOCKER_SHARED_PATH="$DOCKER_SHARED_PATH"

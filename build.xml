@@ -1,46 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="Streams" default="dist">
+<project name="Streams" default="pyro-install">
+    <available file="${project.basedir}/build/build.properties" property="properties_exist" />
+    <available file="${project.basedir}/.env" property="installed" />
 
     <!-- ============================================  -->
-    <!-- Target: prepare                               -->
+    <!-- Index Target: index                           -->
     <!-- ============================================  -->
-    <target name="prepare">
-
-        <echo msg="Deleting directory ./build"/>
-        <delete dir="build"/>
-
-        <echo msg="Making directory ./build"/>
-        <mkdir dir="./build"/>
+    <target name="index-searchable">
+        <echo msg="Reindexing..." />
+        <exec command="php artisan streams:index" passthru="true" checkreturn="true" />
+        <exec command="php artisan streams:compile" passthru="true" checkreturn="true" />
+        <echo msg="All cleared." />
     </target>
 
     <!-- ============================================  -->
-    <!-- Target: build                                 -->
+    <!-- Clear Target: clear                           -->
     <!-- ============================================  -->
-    <target name="build" depends="prepare">
-        <echo msg="Copying files to build directory..."/>
+    <target name="clear-caches">
+        <echo msg="Clearing cache and assets..." />
+        <exec command="php artisan assets:clear" passthru="true" checkreturn="true" />
+        <exec command="php artisan cache:clear" passthru="true" checkreturn="true"/>
+        <exec command="php artisan view:clear" passthru="true" checkreturn="true"/>
+        <exec command="php artisan twig:clear" passthru="true" checkreturn="true"/>
+        <echo msg="All cleared." />
 
-        <echo msg="Copying ./ to ./build directory..."/>
-        <copy todir="./build">
-            <fileset dir="./">
-                <include name="**"/>
-                <exclude name=".git/"/>
-            </fileset>
-        </copy>
+        <phingcall target="index-searchable" />
     </target>
 
     <!-- ============================================  -->
-    <!-- (DEFAULT)  Target: dist                       -->
+    <!-- Pyro install Target: pyro-install             -->
     <!-- ============================================  -->
-    <target name="dist" depends="build">
-        <echo msg="Creating archive..."/>
+    <target name="pyro-install" depends="composer-install">
+        <if>
+            <not><available file=".env" /></not>
+            <then>
+                <echo msg="PyroCMS installing..."/>
+                <exec command="php artisan install" passthru="true"  />
+                <echo msg="Done installing pyrocms."/>
+            </then>
+        <else>
+            <echo msg="Pyro is already installed." />
+            <phingcall target="clear-caches" />
+        </else>
+        </if>
+        
+    </target>
 
-        <tar destfile="./build/build.tar.gz" compression="gzip">
-            <fileset dir="./build">
-                <include name="*"/>
-            </fileset>
-        </tar>
-
-        <echo msg="Files copied and compressed in build directory OK!"/>
+    <!-- ============================================  -->
+    <!-- (DEFAULT) Target: composer                     -->
+    <!-- ============================================  -->
+    <target name="composer-install">
+        <echo msg="Composer install..."/>
+        <exec command="composer install" passthru="true"  />
+        <echo msg="Done composer install."/>
     </target>
 </project>
