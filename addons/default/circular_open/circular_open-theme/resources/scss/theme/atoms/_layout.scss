@@ -13,7 +13,7 @@ main {
 
     // First headings on a page should not have any extra margin on top. The main content container will already be padded.
     h1, h2 {
-        margin: 0 0 0.5rem 0;
+        margin: 0 0 3rem 0;
 
         // Body directly below a heading should not have any extra margin on top to better indicate association.
         & + p {
