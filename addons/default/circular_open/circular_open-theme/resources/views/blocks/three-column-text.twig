@@ -1,9 +1,9 @@
-<span class="h1">{{ block.title }}</span>
+<h1 class="text-center">{{ block.title }}</h1>
 <div class="row">
 {% for col in block.designer_list %}
-   <div class="col-12 col-md-4">
-    <h4><a href="{{ url_route('pages::3.en') }}/view/{{ str_slug(col.name) }}/{{ col.id }}">{{ col.name }}</a></h4>
-    {{ col.role }}
+   <div class="col-12 col-md-4 d-flex align-items-center flex-column mb-5">
+    <a href="{{ url_route('pages::3.en') }}/view/{{ str_slug(col.name) }}/{{ col.id }}"><h4>{{ col.name }}</h4></a>
+    <p>{{ col.role }}</p>
     </div>
 {% endfor %}
 </div>

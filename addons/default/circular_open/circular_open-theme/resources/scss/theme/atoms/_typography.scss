@@ -6,7 +6,7 @@ h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, button, span, label {
 }
 
 // Headings
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5 {
     font-family: "Spartan", sans-serif;
     font-weight: 800;
 }
@@ -17,23 +17,23 @@ h1 {
 }
 
 h2 {
-    font-size: 4.10rem;
+    font-size: 2.75rem;
     line-height: 1.20;
 }
 
 h3 {
     font-size: 1.90rem;
-    line-height: 1.30;
+    line-height: 1.20;
 }
 
 h4 {
     font-size: 1.50rem;
-    line-height: 1.80;
+    line-height: 1.20;
 }
 
 h5 {
     font-size: 1.20rem;
-    line-height: 1.30;
+    line-height: 1.20;
 }
 
 // Body
@@ -47,7 +47,15 @@ p, a, b, table, label, ul, ol, li, input, textarea {
 
 // Links
 a {
+    text-decoration: underline;
 
+    &:hover {
+        color: $link-hover-underline-color;
+    }
+
+    &.no-style {
+        text-decoration: none;
+    }
 }
 
 // Non-breaking copy, useful for preventing widows
