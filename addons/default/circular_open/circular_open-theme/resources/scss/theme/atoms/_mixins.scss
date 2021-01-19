@@ -1,0 +1,102 @@
+// Clearfix - for clearing floats
+@mixin clearfix() {
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+// Hides an element from the screen but not a screen reader
+@mixin sr-only() {
+	position: absolute;
+	width: 0.0625rem;
+	height: 0.0625rem;
+	padding: 0;
+	margin: -0.0625rem;
+	overflow: hidden;
+	clip: rect( 0, 0, 0, 0 );
+	border: 0;
+}
+
+// Cross browser compatible opacity style
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  // IE8 filter
+  $opacity-ie: ($opacity * 100);
+  filter: #{alpha(opacity=$opacity-ie)};
+}
+
+// Provides a smooth transition effect for when elements have a styling augmentation
+@mixin transition() {
+    transition: all 0.2s ease-in-out;
+}
+
+// Darkens the background color of any element when hovered
+@mixin darken-on-hover-focus($color) {
+    background-color: darken($color, 10%);
+}
+
+// Lightens the background color of any element when hovered
+@mixin lighten-on-hover-focus($color) {
+    background-color: Lightens($color, 10%);
+}
+
+// Animated underline
+@mixin animated-underline($color) {
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: -0.25rem;
+        left: 0; right: 0;
+        height: 0.125rem;
+        background-color: $color
+    }
+
+    &:before {
+        opacity: 0;
+        transform: translateY(0.25rem);
+        transition: transform 0s cubic-bezier(0.175, 0.885, 0.320, 1.275), opacity 0s;
+    }
+
+    &:after {
+        opacity: 0;
+        transform: translateY(0.25rem);
+
+    }
+
+    &:hover {
+        &:before,
+        &:after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        &:before {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.320, 1.275), opacity 0.3s;
+        }
+        &:after {
+            transition: transform 0s 0.3s cubic-bezier(0.175, 0.885, 0.320, 1.275), opacity 0s 0.3s;
+        }
+    }
+}
+
+
+// General use drop shadow
+@mixin general-shadow() {
+    box-shadow: 0 0.625rem 1.785rem 0.35rem rgba(0,0,0,0.3);
+}
+
+// Reverses the background and forground color of an element for contrast
+.reversed {
+    background-color: $reversed-background-color !important;
+
+    h1, h2, h3, h4, h5, p, span, a {
+        color: $reversed-foreground-color !important;
+    }
+
+}

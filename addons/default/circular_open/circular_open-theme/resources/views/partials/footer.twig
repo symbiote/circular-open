@@ -3,10 +3,12 @@
     <div class="row text-muted">
         <div class="col-8">
             <h2>This website is Open-source</h2>
-            <p>This website is Open-source Developed and hosted by Symbiote.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <h5>This website is Open-source Developed and hosted by Symbiote.</h5>
+            <div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
         </div>
-        <div class="col-4">
+        <div class="col-2 offset-2">
             <h4>Extra</h4>
             <ul>
                 <li><a href="{{ variable_value('social_media', 'instagram') }}">Instagram</a></li>
@@ -20,10 +22,10 @@
     <div class="aboriginal-statement">
         <p>We acknowledge the traditional owners of Country throughout Australia and their continuing connection to land, air, water and community.  We thank them for their custodianship and care of this land and pay our respects to elders past, present and emerging. Sovereignty was never ceded.</p>
     </div>
-       
-        <span class="text-center">
+
+        <p>
         {#&copy;{{ 'now'|date('Y') }} {{ setting_value('streams::name', 'Your Site') }}, All rights reserved.#}
         &copy;{{ 'now'|date('Y') }} Your Company, All rights reserved.
-        </span>
+        </p>
     </div>
 </footer>
