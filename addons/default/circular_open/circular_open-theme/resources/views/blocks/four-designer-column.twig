@@ -1,24 +1,26 @@
 {% set team = entries('designer', 'designers').get() %}
-
-<div class="row">
+{% set bg = (block.switch_background.true) ? 'reversed' : '' %}
+<div class="{{ bg }}">
     <div class="row">
-        {% for card in team %}
-        <div class="col-6 col-md-3">
-           {{ img(card.image).class('img-responsive')|raw }}
-           <h4><a href="{{ url_route('pages::3.en') }}/view/{{ str_slug(card.name) }}/{{ card.id }}">{{ card.name }}</a></h4>
-           <p>{{ card.role }}</p>
-            {% if card.waste_material_categories|length %}
-                <div class="categories">
-                    <p>Waster materials:</p>
-                    {% for category in card.waste_material_categories %}
-                        <span>
-                        {{ category.title.value|raw }}
-                        {{ not loop.last ? ',' }}
-                        </span>
-                    {% endfor %}
-                </div>
-            {% endif %}
+        <div class="row">
+            {% for card in team %}
+            <div class="col-6 col-md-3">
+            {{ img(card.image).class('img-responsive')|raw }}
+            <h4><a href="{{ url_route('pages::3.en') }}/view/{{ str_slug(card.name) }}/{{ card.id }}">{{ card.name }}</a></h4>
+            <p>{{ card.role }}</p>
+                {% if card.waste_material_categories|length %}
+                    <div class="categories">
+                        <p>Waster materials:</p>
+                        {% for category in card.waste_material_categories %}
+                            <span>
+                            {{ category.title.value|raw }}
+                            {{ not loop.last ? ',' }}
+                            </span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
 </div>

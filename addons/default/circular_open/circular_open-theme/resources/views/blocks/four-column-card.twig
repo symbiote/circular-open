@@ -1,12 +1,14 @@
-<div class="row">
-
+{% set bg = (block.switch_background.true) ? 'reversed' : '' %}
+<div class="{{ bg }}">
     <div class="row">
-        {% for card in block.four_column_card %}
-        <div class="col-6 col-md-3">
-           {{ img(card.image).class('img-responsive')|raw }}
-           <h4>{{ card.title }}</h4>
-           <p>{{ card.summary }}</p>
-            </div>
-        {% endfor %}
+        <div class="row">
+            {% for card in block.four_column_card %}
+            <div class="col-6 col-md-3">
+            {{ img(card.image).class('img-responsive')|raw }}
+            <h4>{{ card.title }}</h4>
+            <p>{{ card.summary }}</p>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 </div>
