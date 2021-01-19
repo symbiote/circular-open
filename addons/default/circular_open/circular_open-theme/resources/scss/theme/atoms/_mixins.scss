@@ -92,7 +92,11 @@
 }
 
 // Reverses the background and forground color of an element for contrast
-@mixin reversed() {
+.reversed {
     background-color: $reversed-background-color !important;
-    color: $reversed-foreground-color !important;
+
+    h1, h2, h3, h4, h5, p, span, a {
+        color: $reversed-foreground-color !important;
+    }
+
 }

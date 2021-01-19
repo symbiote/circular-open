@@ -1,4 +1,4 @@
-{% set bg = (block.switch_background.true) ? 'banner--white' : '' %}
+{% set bg = (block.switch_background.true) ? 'reversed' : '' %}
 <div class="banner {{ bg }}">
     {{ block.content|raw }}
     {% if block.cta_link|length %}
