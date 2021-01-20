@@ -6,9 +6,14 @@ h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, button, span, label {
 }
 
 // Headings
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4 {
     font-family: "Spartan", sans-serif;
     font-weight: 800;
+}
+
+h5 {
+    font-family: "Spartan", sans-serif;
+    font-weight: 400;
 }
 
 h1 {
@@ -17,7 +22,7 @@ h1 {
 }
 
 h2 {
-    font-size: 2.75rem;
+    font-size: 3.75rem;
     line-height: 1.20;
 }
 
@@ -32,15 +37,15 @@ h4 {
 }
 
 h5 {
-    font-size: 1.20rem;
-    line-height: 1.20;
+    font-size: 1.5rem;
+    line-height: 1.50;
 }
 
 // Body
 p, a, b, table, label, ul, ol, li, input, textarea {
     font-family: "Spartan", sans-serif;
     font-size: 1rem;
-    line-height: 1.45;
+    line-height: 1.80;
     font-weight: 400;
 }
 

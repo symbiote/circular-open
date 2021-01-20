@@ -99,4 +99,13 @@
         color: $reversed-foreground-color !important;
     }
 
+    .button {
+        background: $button-reversed-background-color;
+        color: $button-reversed-foreground-color;
+
+        &:hover {
+            color: $button-reversed-foreground-color;
+        }
+    }
+
 }

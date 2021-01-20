@@ -8,6 +8,7 @@
 
 
 // Import atoms
+@import "atoms/buttons";
 @import "atoms/mixins";
 @import "atoms/layout";
 @import "atoms/banner";
@@ -15,6 +16,10 @@
 @import "atoms/layout";
 @import "atoms/typography";
 @import "atoms/images";
+    // Blocks
+    @import "atoms/quote";
+    @import "atoms/full_width_image";
+
 
 // Import molecules
 
