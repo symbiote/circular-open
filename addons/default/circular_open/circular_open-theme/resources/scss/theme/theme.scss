@@ -1,6 +1,10 @@
 // Bootstrap
 @import "bootstrap/bootstrap";
 
+//Slick
+@import "slick-carousel/slick/slick";
+@import "slick-carousel/slick/slick-theme";
+
 // Import variables
 @import "variables/colors";
 @import "variables/fonts";
@@ -26,3 +30,7 @@
 // Import organisms
 @import "organisms/navigation";
 @import "organisms/footer";
+@import "organisms/featured_carousel";
+
+// Slick
+@import "slick/slick-dots";
