@@ -1,11 +1,10 @@
-<div class="container-fluid navigation">
-    <div className="nav__logo">
-        <a href="{{ url("/") }}" class="no-style">
-            <h3>{{ setting_value('streams::name', config_get('streams::distribution.name')) }}</h3>
-        </a>
-    </div>
-    <input type="checkbox" id="nav" className="hamburger-nav-toggle-checkbox" />
-    <label htmlFor="nav" className="hamburger-toggle-icon"><i></i><i></i><i></i></label>
+<div class="container-fluid navigation nav">
+    <a href="{{ url("/") }}" class="no-style">
+        <img class="nav__logo"></img>
+    </a>
+
+    <input type="checkbox" id="nav" class="hamburger-nav-toggle-checkbox" />
+    <label htmlFor="nav" class="hamburger-toggle-icon"><i></i><i></i><i></i></label>
 
     {{ structure()
         .bootstrap4()
