@@ -3,8 +3,10 @@
 #}
 
 {# Core Theme Components #}
+{{ asset_add("theme.js", "theme::js/vendor/jquery.min.js") }}
 {{ asset_add("theme.js", "theme::js/vendor/vue.min.js") }}
 {{ asset_add("theme.js", "theme::js/vendor/bootstrap.min.js") }}
+{{ asset_add("theme.js", "theme::js/vendor/slick.min.js") }}
 
 {# Theme Scripts #}
 {{ asset_add("theme.js", "theme::js/plugins/*") }}
