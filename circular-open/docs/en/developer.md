@@ -86,6 +86,7 @@ If you wanted more control over a page, you can create a folder with twigs insid
 ```
 
 **Adding a theme**
+
 There are few ways of creating a theme, but the easiest way so through the command line:
 
 ```
@@ -93,7 +94,8 @@ php artisan make:addon my_client.theme.awesome
 ```
 If you want to find more information, click [Theme creation](https://pyrocms.com/help/addon-development/themes/creating-a-theme "cheatsheet")Theme create.
 
-**Clearing cache and assets***
+**Clearing cache and assets**
+
 After you have set up the front-end packages, after compiling your assets, you need to clear the assets in the public folder and clear caches.
 ```
 php artisan assets:clear
@@ -101,6 +103,56 @@ php artisan cache:clear
 php artisan view:clear
 php artisan twig:clear
 ```
+
+**Overriding Configs**
+
+If you wanted to override a core field or a module, you can easily generate the files using a command that creates the structure of the module configs.  You can find more [here](https://pyrocms.com/help/developer-tools/extending-pyrocms/overriding-configurationw "configs").
+
+```
+php artisan addon:publish anomaly.field_type.wysiwyg
+```
+
+then  you can edit the files to your liking
+
+```
+"example" => [
+    "type"   => "anomaly.field_type.wysiwyg",
+    "config" => [
+        "default_value" => null,
+        "configuration" => "default",
+        "line_breaks"   => false,
+        "sync"          => true,
+        "height"        => 500,
+        "buttons"       => [],
+        "plugins"       => [],
+    ]
+]
+```
+
+**Overriding blocks/view**
+
+When you created a theme through CLI, you should be able to have 2 files in src/ folder.
+
+1. <ThemeName>Theme.php
+
+2. <ThemeName>ServiceProvider.php
+
+Head to the <ThemeName>ServiceProvider.php and look for `$overrides`. Example below.
+
+```
+    /**
+     * The addon view overrides.
+     *
+     * @type array|null
+     */
+    protected $overrides = [
+        'anomaly.extension.wysiwyg_block::content' => 'circular_open.theme.circular_open::blocks/wysiwyg/content',
+        'anomaly.module.blocks::types.wrapper' => 'circular_open.theme.circular_open::blocks/wysiwyg/wrapper'
+    ];
+```
+On the **left** is the core module views and on the **right** is your override views file.
+
+> Make sure you are overriding the right addon or core module view files. 
 
 #### Searchable streams and fields
 You can make any field searchable by toggling the **Searchable** when assigning a field into a group or stream.

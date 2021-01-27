@@ -75,6 +75,7 @@ To create a new page, head to the sub-navigation and click **Pages**, click the 
 What are streams? Streams are a collection of data points that creates data as a whole. Designer and Event are streams and they are consists of fields and blocks collected in data called **Entry**.
 
 **Adding an entry:**
+
 Head to the side navigation and click **Designer**, click **New** and fill in the fields.
 
 <p align="center">
@@ -85,6 +86,7 @@ Head to the side navigation and click **Designer**, click **New** and fill in th
 Blocks are movable components which are building blocks of a page. There are various types of blocks that are specifically built for certain layout and design.
 
 **Adding a block on a page**
+
 On the middle section of the page, under the **Content** field, click **Add block**. A prompt should display with a list of blocks available to add. The list of blocks is listed below including the example.
 
 <p align="center">
@@ -94,21 +96,44 @@ On the middle section of the page, under the **Content** field, click **Add bloc
 # Blocks
 
 **Banner**
+
 To switch the background colour,  just simply toggle the **Switch** background and hit **update**.
 
 <p align="center">
   <img width="600" height="300" src="_images/9-block-banner.png">
 </p>
 
+**Carousel**
+
+There are 2 types of carousel we can add on pages. These carousels have only one source of data which is in the **Slides** streams.
+
+<p align="center">
+  <img width="600" height="300" src="_images/34-cms-carousel.png">
+</p>
+
+1. Default carousel - The main layout is an image on the left and text on the side.
+
+<p align="center">
+  <img width="600" height="300" src="_images/35-block-carousel.png">
+</p>
+
+2. Feature carousel - The block has 2 fields, one is the **label** which shows in the left on a stack and the **Slide** dropdown where you can choose which slide to display. The label also controls a slide meaning if you click the label it will transition to that label’s slide.
+
+<p align="center">
+  <img width="600" height="300" src="_images/36-page-carousel.png">
+</p>
+
 **Cards (4 columns)**
+
 Tip: You can rearrange the cards using the move cursor.
 
 <p align="center">
-    <img width="400" height="300" src="_images/10-cms-4-cards.png">
-    <img width="400" height="300" src="_images/11-fe-4-cards.png">
+  <img width="400" height="300" src="_images/10-cms-4-cards.png">
+  <img width="400" height="300" src="_images/11-fe-4-cards.png">
 </p>
 
 **Contact details**
+
 Mainly displays the designer contact details. Note that you cannot reorder the details.
 
 <p align="center">
@@ -117,9 +142,12 @@ Mainly displays the designer contact details. Note that you cannot reorder the d
 </p>
 
 **Designers (4 column photo)**
+
 Four grid column of all designers in the entries added in the designer stream. Reordering is available and is documented below.
 
+
 **Designers (3 columns)**
+
 In contrast to the 4 columns, this block allows you to choose designers to display on the front-end.
 
 <p align="center">
@@ -128,6 +156,7 @@ In contrast to the 4 columns, this block allows you to choose designers to displ
 </p>
 
 **Event list (2 columns)**
+
 Same with the 3 columns, you can also choose the events to display. It will display as 2 grid column.
 
 <p align="center">
@@ -136,9 +165,11 @@ Same with the 3 columns, you can also choose the events to display. It will disp
 </p>
 
 **Full-width image**
+
 Serves one image field and a title.
 
 **Hero**
+
 Title, subtitle, and content.
 
 <p align="center">
@@ -146,6 +177,7 @@ Title, subtitle, and content.
 </p>
 
 **Side by side (image and text)**
+
 Tip: to switch the position of the image, just simply toggle the Switch position and hit update.
 
 <p align="center">
@@ -153,6 +185,7 @@ Tip: to switch the position of the image, just simply toggle the Switch position
 </p>
 
 **Videos 2 (column)**
+
 Tip: You can copy and paster the youtube URL and it will automatically embed it. 
 
 <p align="center">
@@ -161,6 +194,7 @@ Tip: You can copy and paster the youtube URL and it will automatically embed it.
 
 
 **Visit map**
+
 The map is using [SnazzyMaps](https://snazzymaps.com/ "Named link title"). This map is combination of configs to make the look and feel and API key.
 
 <p align="center">
@@ -171,6 +205,7 @@ The map is using [SnazzyMaps](https://snazzymaps.com/ "Named link title"). This 
 If you find yourself wanting to reorder blocks or streams, it’s actually easy to do. 
 
 **Blocks**
+
 If you wanted to rearrange the blocks, for this example, on the homepage, you can do so by moving the move cursor and using the drag-and-drop motion. To make reordering easier, you can **Double click** on the **black** bar to minimise the block. Once you have done your reordering, just simply hit update.
 
 <p align="center">
