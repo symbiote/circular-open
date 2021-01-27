@@ -1,0 +1,25 @@
+.slick-dots {
+    position: unset;
+    margin-top: 1rem;
+
+    li {
+        button {
+            &:before {
+                font-size: 30px;
+                color:$sc-dot-color;
+            }
+        }
+        &.slick-active button:before {
+            color: $active-sc-dot-color;
+            opacity: 1;
+        }
+    }
+}
+
+.slick-slide {
+    &:focus{
+       outline: none;
+    }
+
+    cursor: pointer;
+}

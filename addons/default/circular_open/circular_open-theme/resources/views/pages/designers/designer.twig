@@ -1,7 +1,5 @@
 {% set team = entries('designer', 'designers').find(request_segments()| last) %}
-
 <div class="container">
-
     <h1>{{ team.name|raw }}</h1>
     <h4>{{ team.role|raw }}</h4>
 
@@ -14,8 +12,6 @@
             {{ team.bio|raw }}
         </div>
     </div>
-
-    {{ team.content|raw }}
-
-
 </div>
+
+{{ team.content|raw }}

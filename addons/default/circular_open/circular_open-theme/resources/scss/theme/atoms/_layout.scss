@@ -5,19 +5,27 @@ main {
 
 // block
 .block {
-    margin: 6rem 0 18rem;
+    margin: 6rem 0 13rem;
 }
 
 // Text layout
     // Headings
 
-    // First headings on a page should not have any extra margin on top. The main content container will already be padded.
-    h1, h2 {
-        margin: 0 0 3rem 0;
+    h1 {
+        margin: 6rem 0;
 
-        // Body directly below a heading should not have any extra margin on top to better indicate association.
+        // Body directly below a heading should have negative margin on top to better indicate association.
         & + p {
-            margin: 0 0 1.2rem 0;
+            margin: -4rem 0 1.2rem 0;
+        }
+    }
+
+    h2 {
+        margin: 4rem 0;
+
+        // Body directly below a heading should have negative margin on top to better indicate association.
+        & + p {
+            margin: -2rem 0 1.2rem 0;
         }
     }
 
@@ -53,4 +61,8 @@ ul li{
 // Provide a little bit of spacing left and right of a button to stop it from butting up to text or another button.
 button {
     margin: 0 0.2rem;
+}
+
+.container-fluid {
+    padding: 0;
 }

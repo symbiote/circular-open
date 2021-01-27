@@ -1,3 +1,11 @@
-.block--full_width_image {
+.block--full_width_image_block {
     text-align: center;
+
+    h2 {
+        margin: 4rem 0;
+    }
+
+    img {
+        width: 100vw;
+    }
 }

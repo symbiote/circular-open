@@ -1,8 +1,12 @@
-<div class="row">
-    <div class="col-12 col-md-4">
-        {{ block.content|raw }}
-    </div>
-    <div class="col-12 col-md-8">
-        <iframe src="{{ block.map|raw }}" width="100%" height="500px" style="border:none;"></iframe>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <h1>{{ block.title.value }}</h1>
+            <a href={{block.cta_link}}>{{ block.cta_label }}</a>
+            {{ block.content|raw }}
+        </div>
+        <div class="col-12 col-md-8 align-self-end">
+            <iframe src="{{ block.map|raw }}" width="100%" height="500px" style="border:none;"></iframe>
+        </div>
     </div>
 </div>

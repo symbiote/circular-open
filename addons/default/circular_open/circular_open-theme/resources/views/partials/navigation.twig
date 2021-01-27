@@ -1,7 +1,5 @@
 <div class="container-fluid navigation nav">
-    <a href="{{ url("/") }}" class="no-style">
-        <img class="nav__logo"></img>
-    </a>
+    {% include "theme::partials/search" %}
 
     <input type="checkbox" id="nav" class="hamburger-nav-toggle-checkbox" />
     <label htmlFor="nav" class="hamburger-toggle-icon"><i></i><i></i><i></i></label>

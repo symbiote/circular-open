@@ -1,13 +1,20 @@
 {% set team = entries('designer', 'designers').get() %}
 {% set bg = (block.switch_background.true) ? 'reversed' : '' %}
+
 <div class="{{ bg }}">
-    <div class="row">
+    <div class="container">
+        <div class="text-center">
+            <h2>{{ block.title.value }}</h2>
+        </div>
+
         <div class="row">
             {% for card in team %}
             <div class="col-6 col-md-3">
             {{ img(card.image).class('img-responsive')|raw }}
-            <h4><a href="{{ url_route('pages::3.en') }}/view/{{ str_slug(card.name) }}/{{ card.id }}">{{ card.name }}</a></h4>
-            <p>{{ card.role }}</p>
+            <a href="{{ url_route('pages::3.en') }}/view/{{ str_slug(card.name) }}/{{ card.id }}">
+                <h4>{{ card.name }}</h4>
+            </a>
+            <h5>{{ card.role }}</h5>
                 {% if card.waste_material_categories|length %}
                     <div class="categories">
                         <p>Waster materials:</p>
@@ -24,3 +31,4 @@
         </div>
     </div>
 </div>
+

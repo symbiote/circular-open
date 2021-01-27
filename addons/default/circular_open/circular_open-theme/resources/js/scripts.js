@@ -86,49 +86,79 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/theme/logo.js":
-/*!************************************!*\
-  !*** ./resources/js/theme/logo.js ***!
-  \************************************/
+/***/ "./resources/js/theme/slickCarousel.js":
+/*!*********************************************!*\
+  !*** ./resources/js/theme/slickCarousel.js ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-(function (window, document) {
-  var navLogo = document.querySelectorAll(".nav__logo")[0];
-  navLogo.src = "/images/logo_static.png";
-  navLogo.addEventListener('mouseenter', function (e) {
-    navLogo.src = "/images/logo.gif";
-  });
-  navLogo.addEventListener('mouseleave', function (e) {
-    navLogo.src = "/images/logo_static.png";
-  });
-})(window, document);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
-/***/ }),
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-/***/ "./resources/js/theme/test.js":
-/*!************************************!*\
-  !*** ./resources/js/theme/test.js ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 (function (window, document) {
-  // Go!
-  console.log("bbbbb");
+  $('.carousel-wrapper').slick({
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    autoplay: false,
+    arrows: false
+  });
+  $('.featured-carousel-wrapper').slick({
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    autoplay: false,
+    arrows: false
+  });
+
+  function featureSlideAction() {
+    var links = document.querySelectorAll('.featured-slides__link');
+
+    var _iterator = _createForOfIteratorHelper(links),
+        _step;
+
+    try {
+      var _loop = function _loop() {
+        var link = _step.value;
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          if (link) {
+            var slideIndex = parseInt(link.getAttribute('data-slide-index') || "0");
+            $('.featured-carousel-wrapper').slick('slickGoTo', slideIndex - 1);
+          }
+        });
+      };
+
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        _loop();
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+  }
+
+  featureSlideAction();
 })(window, document);
 
 /***/ }),
 
 /***/ 2:
-/*!***********************************************************************!*\
-  !*** multi ./resources/js/theme/logo.js ./resources/js/theme/test.js ***!
-  \***********************************************************************/
+/*!***************************************************!*\
+  !*** multi ./resources/js/theme/slickCarousel.js ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/asarkis/repos/circular-open/addons/default/circular_open/circular_open-theme/resources/js/theme/logo.js */"./resources/js/theme/logo.js");
-module.exports = __webpack_require__(/*! /home/asarkis/repos/circular-open/addons/default/circular_open/circular_open-theme/resources/js/theme/test.js */"./resources/js/theme/test.js");
+module.exports = __webpack_require__(/*! /home/asarkis/repos/circular-open/addons/default/circular_open/circular_open-theme/resources/js/theme/slickCarousel.js */"./resources/js/theme/slickCarousel.js");
 
 
 /***/ })

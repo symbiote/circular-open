@@ -1,10 +1,6 @@
 // Bootstrap
 @import "bootstrap/bootstrap";
 
-//Slick
-@import "slick-carousel/slick/slick";
-@import "slick-carousel/slick/slick-theme";
-
 // Import variables
 @import "variables/colors";
 @import "variables/fonts";
@@ -20,9 +16,8 @@
 @import "atoms/layout";
 @import "atoms/typography";
 @import "atoms/images";
-    // Blocks
-    @import "atoms/quote";
-    @import "atoms/full_width_image";
+@import "atoms/quote";
+@import "atoms/full_width_image";
 
 
 // Import molecules
@@ -31,6 +26,9 @@
 @import "organisms/navigation";
 @import "organisms/footer";
 @import "organisms/featured_carousel";
+@import "organisms/four-designer-column";
 
 // Slick
-@import "slick/slick-dots";
+@import "slick-carousel/slick/slick";
+@import "slick-carousel/slick/slick-theme";
+@import "slick/slick-carousel";

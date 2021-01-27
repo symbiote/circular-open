@@ -1,7 +1,10 @@
 {% set bg = (block.switch_background.true) ? 'reversed' : '' %}
+
 <div class="banner {{ bg }}">
+<div class="container">
     {{ block.content|raw }}
-    {% if block.cta_link|length %}
-        <a href="{{ block.cta_label }}" class="button">{{ block.cta_label|length ? block.cta_label : 'More info' }}</a>
-    {% endif %}
+        {% if block.cta_link|length %}
+            <a href="{{ block.cta_label }}" class="button">{{ block.cta_label|length ? block.cta_label : 'More info' }}</a>
+        {% endif %}
+    </div>
 </div>

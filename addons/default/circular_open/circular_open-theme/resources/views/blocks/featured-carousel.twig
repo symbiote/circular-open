@@ -1,23 +1,23 @@
-<h1 class="text-center">{{ block.title }}</h1>
+<div class="container">
+    <h1 class="text-center">{{ block.title }}</h1>
 
-<div class="featured-slides row">
-    <div class="col-12 col-md-6">
-        {% for item in block.feature_slides %}
-            <div class="featured-slides__labels">
-                <span class="featured-slides__link" data-slide-index="{{ loop.index }}">{{ item.slide_label|raw }}</span>
-            </div>
-        {% endfor %}
-    </div>
-    <div class="col-12 col-md-6">
-        <div class="featured-carousel-wrapper">
+    <div class="featured-slides row">
+        <div class="col-12 col-md-6">
             {% for item in block.feature_slides %}
-                <div>
-                    <h5>{{ item.slide.title }}</h5>
-                    {{ item.slide.content|raw }}
+                <div class="featured-slides__labels">
+                    <a class="featured-slides__link" data-slide-index="{{ loop.index }}"><h2>{{ item.slide_label|raw }}</h2></a>
                 </div>
             {% endfor %}
         </div>
+        <div class="col-12 col-md-6">
+            <div class="featured-carousel-wrapper">
+                {% for item in block.feature_slides %}
+                    <div>
+                        <h5>{{ item.slide.title }}</h5>
+                        {{ item.slide.content|raw }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 </div>
-
-
