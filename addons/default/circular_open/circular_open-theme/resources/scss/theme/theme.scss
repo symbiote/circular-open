@@ -21,12 +21,14 @@
 
 
 // Import molecules
+@import "molecules/card";
 
 // Import organisms
 @import "organisms/navigation";
 @import "organisms/footer";
 @import "organisms/featured_carousel";
 @import "organisms/four-designer-column";
+@import "organisms/event-two-column";
 
 // Slick
 @import "slick-carousel/slick/slick";

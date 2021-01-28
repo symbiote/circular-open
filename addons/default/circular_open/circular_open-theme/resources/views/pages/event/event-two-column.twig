@@ -1,17 +1,16 @@
 {% set bg = (block.switch_background.true) ? 'reversed' : '' %}
 
-<div class="container">
-    <div class="{{ bg }}">
+<div class="{{ bg }}">
+    <div class="container">
+        <h2>{{ block.title }}</h2>
         <div class="row">
             {% for event in block.event_list %}
                 <div class="card col-12 col-md-6">
                     {{ img(event.image).class('img-responsive')|raw }}
-                    <h2>{{ event.title }}</h2>
+                    <h3>{{ event.title }}</h3>
                     <p>{{ event.price }} | {{ event.date.date() }} | {{ event.time }}</p>
                     {{ event.event_details|raw }}
-                    <div class="link">
-                        <a href="{{event.cta_link }}">{{event.cta_label}}</a>
-                    </div>
+                    <a href="{{event.cta_link }}" class="button">{{event.cta_label}}</a>
                 </div>
             {% endfor %}
         </div>

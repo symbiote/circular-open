@@ -93,10 +93,10 @@
 
 // Reverses the background and forground color of an element for contrast
 .reversed {
-    background-color: $reversed-background-color !important;
+    background-color: $reversed-background-color;
 
-    h1, h2, h3, h4, h5, p, span, a {
-        color: $reversed-foreground-color !important;
+    h1, h2, h3, h4, h5, p, span, a, ul, li {
+        color: $reversed-foreground-color;
     }
 
     .button {
@@ -107,5 +107,4 @@
             color: $button-reversed-foreground-color;
         }
     }
-
 }
