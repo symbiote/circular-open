@@ -107,4 +107,10 @@
             color: $button-reversed-foreground-color;
         }
     }
+
+    a {
+        &:hover {
+            color: $reversed-foreground-color;
+        }
+    }
 }

@@ -10,8 +10,7 @@
 
 
     {{ structure()
-        .bootstrap4()
-        .listClass('nav__links')
-        .cache({'namespace': user().id ~ ':' ~ config('app.locale')})
-        .render()|raw }}
+            .bootstrap4()
+            .listClass('nav__links')
+            .render()|raw }}
 </div>
