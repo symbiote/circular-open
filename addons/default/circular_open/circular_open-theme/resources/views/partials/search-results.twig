@@ -6,9 +6,9 @@
 
 {% if q %}
     <div class="container">
-        <h2>Search Results</h2>
-        <div class="col-12 col-md-8">
+        <h2 data-aos="fade-down" data-aos-duration="1000">Search Results</h2>
 
+        <div class="col-12 col-md-8" data-aos="fade-up" data-aos-duration="1000">
             {% if results|length %}
             <ul class="search-results">
                 {% for result in results %}
