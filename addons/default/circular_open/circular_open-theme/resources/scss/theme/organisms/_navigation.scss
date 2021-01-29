@@ -61,9 +61,7 @@
 
         .nav-item {
             margin: 0;
-            @include media-breakpoint-up(sm) {
-                    @include animated-underline($navigation-foreground-color);
-                }
+
 
             &.selected {
                 a {
@@ -72,6 +70,35 @@
             }
         }
 
+        .nav__link {
+            position: relative;
+            display: inline-block;
+            margin: 0 3rem 0 0;
+            padding: 0;
+            text-align: left;
+            cursor: pointer;
+
+            @include media-breakpoint-down(md) {
+                margin: 0 2rem 0 0;
+            }
+
+            &:last-child {
+                margin: 0;
+            }
+
+            a {
+                text-decoration: none;
+            }
+        }
+
+        .nav__link {
+            h4 {
+                color: $navigation-foreground-color;
+                margin: 0;
+
+
+            }
+        }
     }
 
     .hamburger-nav-toggle-checkbox {
