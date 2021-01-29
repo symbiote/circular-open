@@ -3,29 +3,61 @@ main {
     margin: 1.5rem 0 3rem 0;
 }
 
+.container {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    @include media-breakpoint-down(md) {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+}
+
 // block
 .block {
-    margin: 6rem 0 13rem;
+    margin: 6rem 0;
+
+    @include media-breakpoint-down(md) {
+        margin: 1rem 0;
+    }
 }
 
 // Text layout
     // Headings
 
     h1 {
-        margin: 6rem 0;
+        margin: 4rem 0 6rem;
 
         // Body directly below a heading should have negative margin on top to better indicate association.
         & + p {
             margin: -4rem 0 1.2rem 0;
         }
+
+        @include media-breakpoint-down(md) {
+            margin: 2rem 0 3rem;
+
+            // Body directly below a heading should have negative margin on top to better indicate association.
+            & + p {
+                margin: -2rem 0 0.6rem 0;
+            }
+        }
     }
 
     h2 {
-        margin: 4rem 0;
+        margin: 2rem 0 4rem 0;
 
         // Body directly below a heading should have negative margin on top to better indicate association.
         & + p {
             margin: -2rem 0 1.2rem 0;
+        }
+
+        @include media-breakpoint-down(md) {
+            margin: 1rem 0 2rem;
+
+            // Body directly below a heading should have negative margin on top to better indicate association.
+            & + p {
+                margin: -1rem 0 0.6rem 0;
+            }
         }
     }
 
@@ -36,6 +68,15 @@ main {
         // Body directly below a heading should not have any extra margin on top to better indicate association.
         & + p {
             margin: 0 0 1.2rem 0;
+        }
+
+        @include media-breakpoint-down(md) {
+            margin: 0.75rem 0 0.25rem;
+
+            // Body directly below a heading should have negative margin on top to better indicate association.
+            & + p {
+                margin: 0 0 0.6rem 0;
+            }
         }
     }
 

@@ -1,4 +1,8 @@
 .banner {
+    h1 {
+        margin: 0;
+    }
+
     &.reversed {
         padding: 4rem 0px;
     }

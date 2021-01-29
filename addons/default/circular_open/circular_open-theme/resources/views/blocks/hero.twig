@@ -1,7 +1,10 @@
 <div class="container">
 
     <div class="col-12">
-        <h1>{{ block.title.value }}</h1>
+        {% if block.title|length %}
+            <h1>{{ block.title.value }}</h1>
+        {% endif %}
+
         <h4>{{ block.subtitle.value }}</h4>
         {{ block.content|raw }}
     </div>

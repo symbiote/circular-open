@@ -19,10 +19,9 @@
 <body>
 
 {% include "theme::partials/header" %}
+{% include "theme::partials/messages" %}
 
 <main id="main">
-    {% include "theme::partials/messages" %}
-
     {% block content %}{% endblock %}
 </main>
 

@@ -1,5 +1,7 @@
 <div class="container">
-    <h1 class="text-center">{{ block.title }}</h1>
+    {% if block.title|length %}
+        <h1 class="text-center">{{ block.title }}</h1>
+    {% endif %}
 
     <div class="carousel-wrapper">
         {% for slide in block.slides %}

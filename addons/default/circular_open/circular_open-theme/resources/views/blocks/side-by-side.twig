@@ -1,21 +1,22 @@
 {% set align_right = (block.switch_position.true) ? 'order-2' : '' %}
 {% set bg = (block.switch_background.true) ? 'reversed' : '' %}
 
-<div class="container">
-    <div class="{{ bg }}">
+<div class="{{ bg }}">
+    <div class="container">
         <div class="row">
             <div class="col-12 col-md-7">
                 {{ img(block.image).class('img-responsive')|raw }}
                 {# {{ block.photo.make.fit(200, 200)|raw }} #}
             </div>
             <div class="col-12 col-md-4 offset-md-1">
-                <h1>{{ block.title }}</h1>
+                <h2>{{ block.title }}</h2>
                 <p>{{ block.blurb|raw }}</p>
                 {{ block.content|raw }}
-                {% if block.cta_link %}
-                    <a href="{{ block.cta_link }}">{{ block.cta_label }}</a>
+                {% if block.cta_link|length %}
+                    <a href="{{ block.cta_link }}" class="button">{{ block.cta_label }}</a>
                 {% endif %}
             </div>
         </div>
     </div>
 </div>
+

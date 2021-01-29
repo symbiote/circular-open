@@ -1,7 +1,10 @@
 <div class="container text-center">
-    <h2 class="block__title">
-        {{ block.title }}
-    </h2>
+    {% if block.title|length %}
+        <h2 class="block__title">
+            {{ block.title }}
+        </h2>
+    {% endif %}
+
     <div class="row">
         <div class="col-12 col-md-4 text-center">
             <a href="mailto:{{ block.email_address }}" target="_blank"><h3>Email address</h3></a>

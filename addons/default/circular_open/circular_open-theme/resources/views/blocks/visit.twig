@@ -1,7 +1,10 @@
 <div class="container">
     <div class="row">
         <div class="col-12 col-md-4">
-            <h1>{{ block.title.value }}</h1>
+            {% if block.title|length %}
+                <h1>{{ block.title }}</h1>
+            {% endif %}
+
             <a href={{block.cta_link}}>{{ block.cta_label }}</a>
             {{ block.content|raw }}
         </div>

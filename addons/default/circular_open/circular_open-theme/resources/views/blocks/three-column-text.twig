@@ -1,5 +1,8 @@
 <div class="container text-center">
-    <h1>{{ block.title }}</h1>
+    {% if block.title|length %}
+        <h1>{{ block.title }}</h1>
+    {% endif %}
+
     <div class="row">
         {% for col in block.designer_list %}
             <div class="col-12 col-md-4 d-flex align-items-center flex-column mb-5">

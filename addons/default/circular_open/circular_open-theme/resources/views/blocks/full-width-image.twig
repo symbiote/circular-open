@@ -1,2 +1,6 @@
-<h2>{{ block.text }}</h2>
+
+{% if block.text|length %}
+    <h2>{{ block.text }}</h2>
+{% endif %}
+
 <img src="{{ img(block.image).url() }}" alt="">

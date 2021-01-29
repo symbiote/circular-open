@@ -86,6 +86,154 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./resources/js/theme/initialize.js":
+/*!******************************************!*\
+  !*** ./resources/js/theme/initialize.js ***!
+  \******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _navigation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./navigation */ "./resources/js/theme/navigation.js");
+
+
+window.onload = function (event) {
+  Object(_navigation__WEBPACK_IMPORTED_MODULE_0__["default"])();
+};
+
+/***/ }),
+
+/***/ "./resources/js/theme/navigation.js":
+/*!******************************************!*\
+  !*** ./resources/js/theme/navigation.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _scrollLock__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scrollLock */ "./resources/js/theme/scrollLock.js");
+/* harmony import */ var _viewport__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./viewport */ "./resources/js/theme/viewport.js");
+// This script handles the toggling of navigation drop down links, hamburger menu, scroll locking etc.
+
+ // Added the following event listeners only once the DOM has loaded
+
+function initMainNav() {
+  var nav = document.querySelector('.nav');
+  var navContainer = document.querySelector('.navigation');
+  var dropDown = document.querySelector('.nav__drop-down-link__toggle');
+  var dropDownList = document.querySelector('.nav__drop-down-list');
+  var hamburgerNavToggleCheckbox = document.querySelector('.hamburger-nav-toggle-checkbox'); // Create darken overlay for adding to the DOM later
+
+  var darkenOverlay = document.createElement('div');
+  darkenOverlay.className = "darken-overlay"; // Listen for all clicks on the document
+
+  document.addEventListener('click', function (event) {
+    // Toggle drop down list visibility on drop down click
+    if (dropDown && event.target === dropDown) {
+      dropDown.classList.toggle('nav__drop-down-list--visible');
+    } // Hide drop down list when click occurs outside of drop down or drop down list
+
+
+    if (event.target !== dropDown && event.target !== dropDownList && dropDown) {
+      dropDown.classList.remove('nav__drop-down-list--visible');
+    } // If click occurs outside the hamburger menu then remove darken overlay from DOM, unlock the scrollability of body and hide the hamburger menu
+
+
+    if (event.target === darkenOverlay || event.target === nav) {
+      if (darkenOverlay && darkenOverlay.parentNode) {
+        darkenOverlay.parentNode.removeChild(darkenOverlay);
+      }
+
+      _scrollLock__WEBPACK_IMPORTED_MODULE_0__["default"].disable(); // Un-check hamburger toggle checkbox
+
+      hamburgerNavToggleCheckbox.checked = false;
+    }
+  }, false);
+
+  if (hamburgerNavToggleCheckbox) {
+    // Listen for when nav toggle checkbox changes
+    hamburgerNavToggleCheckbox.addEventListener('change', function () {
+      // If check occurs
+      if (hamburgerNavToggleCheckbox.checked) {
+        if (navContainer && navContainer.parentNode) {
+          // Add darken overlay to DOM
+          navContainer.parentNode.prepend(darkenOverlay); // Set visibility on darken overlay
+
+          darkenOverlay.classList.add('darken-overlay--visible');
+        } // Lock the scrollability of body
+
+
+        _scrollLock__WEBPACK_IMPORTED_MODULE_0__["default"].enable();
+      } else {
+        // Remove darken overlay from DOM
+        if (darkenOverlay && darkenOverlay.parentNode) {
+          darkenOverlay.parentNode.removeChild(darkenOverlay);
+        } // Unlock the scrollability of body
+
+
+        _scrollLock__WEBPACK_IMPORTED_MODULE_0__["default"].disable();
+      }
+    });
+  }
+
+  window.addEventListener("resize", function () {
+    // If screen is not small and the hamburger toggle checkbox is checked then remove darken overlay from DOM and unlock the scrollability of body
+    if (!_viewport__WEBPACK_IMPORTED_MODULE_1__["default"].sScreen() && hamburgerNavToggleCheckbox.checked) {
+      if (darkenOverlay && darkenOverlay.parentNode) {
+        darkenOverlay.parentNode.removeChild(darkenOverlay);
+      }
+
+      _scrollLock__WEBPACK_IMPORTED_MODULE_0__["default"].disable(); // Un-check hamburger toggle checkbox
+
+      hamburgerNavToggleCheckbox.checked = false;
+    }
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (initMainNav);
+
+/***/ }),
+
+/***/ "./resources/js/theme/scrollLock.js":
+/*!******************************************!*\
+  !*** ./resources/js/theme/scrollLock.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// Helpful functions to enable and disable scrolling of body. Useful for when hamburger menu or modal pop up occurs.
+var body = document.querySelector('body');
+var scrollPosition = 0;
+var scrollLock = {
+  enable: function enable() {
+    scrollPosition = window.pageYOffset;
+
+    if (body) {
+      body.style.overflow = 'hidden';
+      body.style.position = 'fixed';
+      body.style.top = "-".concat(scrollPosition, "px");
+      body.style.width = '100%';
+    }
+  },
+  disable: function disable() {
+    if (body) {
+      body.style.removeProperty('overflow');
+      body.style.removeProperty('position');
+      body.style.removeProperty('top');
+      body.style.removeProperty('width');
+    }
+
+    window.scrollTo(0, scrollPosition);
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (scrollLock);
+
+/***/ }),
+
 /***/ "./resources/js/theme/slickCarousel.js":
 /*!*********************************************!*\
   !*** ./resources/js/theme/slickCarousel.js ***!
@@ -151,14 +299,46 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 /***/ }),
 
+/***/ "./resources/js/theme/viewport.js":
+/*!****************************************!*\
+  !*** ./resources/js/theme/viewport.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// Useful for checking current screen size, similar to media queries.
+var viewport = {
+  xsBreakpointWidth: 576,
+  sBreakpointWidth: 768,
+  mdsBreakpointWidth: 992,
+  xsScreen: function xsScreen() {
+    return window.innerWidth < this.xsBreakpointWidth;
+  },
+  sScreen: function sScreen() {
+    return window.innerWidth < this.sBreakpointWidth;
+  },
+  mScreen: function mScreen() {
+    return window.innerWidth < this.mdsBreakpointWidth;
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (viewport);
+
+/***/ }),
+
 /***/ 2:
-/*!***************************************************!*\
-  !*** multi ./resources/js/theme/slickCarousel.js ***!
-  \***************************************************/
+/*!*********************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/theme/initialize.js ./resources/js/theme/navigation.js ./resources/js/theme/scrollLock.js ./resources/js/theme/slickCarousel.js ./resources/js/theme/viewport.js ***!
+  \*********************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/asarkis/repos/circular-open/addons/default/circular_open/circular_open-theme/resources/js/theme/slickCarousel.js */"./resources/js/theme/slickCarousel.js");
+__webpack_require__(/*! /home/asarkis/repos/circular-open/addons/default/circular_open/circular_open-theme/resources/js/theme/initialize.js */"./resources/js/theme/initialize.js");
+__webpack_require__(/*! /home/asarkis/repos/circular-open/addons/default/circular_open/circular_open-theme/resources/js/theme/navigation.js */"./resources/js/theme/navigation.js");
+__webpack_require__(/*! /home/asarkis/repos/circular-open/addons/default/circular_open/circular_open-theme/resources/js/theme/scrollLock.js */"./resources/js/theme/scrollLock.js");
+__webpack_require__(/*! /home/asarkis/repos/circular-open/addons/default/circular_open/circular_open-theme/resources/js/theme/slickCarousel.js */"./resources/js/theme/slickCarousel.js");
+module.exports = __webpack_require__(/*! /home/asarkis/repos/circular-open/addons/default/circular_open/circular_open-theme/resources/js/theme/viewport.js */"./resources/js/theme/viewport.js");
 
 
 /***/ })

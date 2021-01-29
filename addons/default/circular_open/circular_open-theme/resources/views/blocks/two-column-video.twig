@@ -1,5 +1,8 @@
 <div class="container text-center">
-    <h2>{{ block.title }}</h2>
+    {% if block.title|length %}
+        <h2>{{ block.title }}</h2>
+    {% endif %}
+
     <div class="row">
         {% for vid in block.video_embed %}
             <div class="col-12 col-md-6">
