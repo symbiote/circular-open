@@ -8,9 +8,8 @@
             <a href={{block.cta_link}}>{{ block.cta_label }}</a>
             {{ block.content|raw }}
         </div>
-        <div class="col-12 col-md-8 align-self-end">
-        <iframe data-aos="fade-left" data-aos-duration="1000" src="{{ block.map|raw }}" width="100%" height="500px" style="border:none;"></iframe>
-
+        <div class="col-12 col-md-8 align-self-end" data-aos="fade-up" data-aos-duration="1000">
+            <iframe src="{{ block.map|raw }}" width="100%" height="500px" style="border:none;"></iframe>
         </div>
     </div>
 </div>
