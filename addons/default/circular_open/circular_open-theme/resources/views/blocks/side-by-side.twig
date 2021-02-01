@@ -1,14 +1,17 @@
-{% set align_right = (block.switch_position.true) ? 'order-2' : '' %}
+{% set alignment_image = (block.switch_position.true) ? 'offset-md-1 order-2 ' : '' %}
+{% set alignment_text = (block.switch_position.true) ? '' : 'offset-md-1 order-2 ' %}
+{% set fade_image = (block.switch_position.true) ? 'fade-left' : 'fade-right' %}
+{% set fade_text = (block.switch_position.true) ? 'fade-right' : 'fade-left' %}
 {% set bg = (block.switch_background.true) ? 'reversed' : '' %}
 
 <div class="{{ bg }}">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-7" data-aos="fade-right" data-aos-duration="1000">
+        <div class="col-12 col-md-7 {{ alignment_image }}" data-aos={{ fade_image }} data-aos-duration="1000">
                 {{ img(block.image).class('img-responsive')|raw }}
                 {# {{ block.photo.make.fit(200, 200)|raw }} #}
             </div>
-            <div class="col-12 col-md-4 offset-md-1" data-aos="fade-left" data-aos-duration="1000">
+            <div class="col-12 col-md-4 {{ alignment_text }}" data-aos={{ fade_text }} data-aos-duration="1000">
                 <h2>{{ block.title }}</h2>
                 <p>{{ block.blurb|raw }}</p>
                 {{ block.content|raw }}
@@ -19,4 +22,3 @@
         </div>
     </div>
 </div>
-
