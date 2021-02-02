@@ -96,17 +96,17 @@ h4 {
 }
 
 h5 {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 
     a {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
     }
 
     @include media-breakpoint-down(md) {
-        font-size: 1rem;
+        font-size: 0.8rem;
 
         a {
-            font-size: 1rem;
+            font-size: 0.8rem;
         }
     }
 }
@@ -121,7 +121,7 @@ p, a, b, table, label, ul, ol, li, input, textarea {
 
 
 // Links
-a {
+a:not(.reversed a) {
     text-decoration: underline;
     display: inline-block;
 
@@ -148,5 +148,9 @@ a {
 // Non-breaking copy, useful for preventing widows
 .text-nowrap {
     white-space: nowrap;
+}
+
+.categories {
+    p { font-size: 0.8rem;}
 }
 

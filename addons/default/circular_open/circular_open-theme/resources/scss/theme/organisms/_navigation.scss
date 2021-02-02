@@ -43,11 +43,14 @@
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
-    padding: 1vw 4vw;
+    padding: 20px;
     width: 100%;
     background-color: $navigation-background-color;
     border-bottom: 2px solid white;
 
+    @include media-breakpoint-down(sm) {
+        padding: 20px 5px;
+    }
     .nav__logo {
         height: 4rem;
 
@@ -228,8 +231,8 @@
 
         .hamburger-toggle-icon {
             position: fixed;
-            right: 2.20rem;
-            top: 1.125rem;
+            right: 30px;
+            top: 32px;
             display: block;
             width: 2rem;
             height: 2.2rem;

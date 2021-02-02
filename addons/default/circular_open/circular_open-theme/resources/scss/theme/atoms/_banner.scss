@@ -8,3 +8,18 @@
         margin-top: -2rem;
     }
 }
+
+.designer-banner {
+    h1 {
+        margin-bottom: 0;
+    }
+}
+
+.hero-banner {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    @include media-breakpoint-down(md) {
+        padding-top: 70px;
+        padding-bottom: 0px;
+    }
+}

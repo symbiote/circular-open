@@ -4,7 +4,7 @@
 {% set fade_text = (block.switch_position.true) ? 'fade-right' : 'fade-left' %}
 {% set bg = (block.switch_background.true) ? 'reversed' : '' %}
 
-<div class="{{ bg }}">
+<div class="{{ bg }} side-by-side-block">
     <div class="container">
         <div class="row">
         <div class="col-12 col-md-7 {{ alignment_image }}" data-aos={{ fade_image }} data-aos-duration="1000">

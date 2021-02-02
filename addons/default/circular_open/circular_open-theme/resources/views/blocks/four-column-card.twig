@@ -11,7 +11,8 @@
         <div class="row">
             {% for card in block.four_column_card %}
                 <div class="col-6 col-md-3" data-aos="fade-down" data-aos-duration="1000">
-                    {{ img(card.image).class('img-responsive')|raw }}
+                    {{ img(card.image).class('img-responsive').fit(400, 300).quality(60)|raw }}
+                   
                     <h4>{{ card.title }}</h4>
                     <p>{{ card.summary }}</p>
                 </div>

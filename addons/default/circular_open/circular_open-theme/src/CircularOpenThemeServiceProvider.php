@@ -120,7 +120,7 @@ class CircularOpenThemeServiceProvider extends AddonServiceProvider
      */
     protected $overrides = [
         'anomaly.extension.wysiwyg_block::content' => 'circular_open.theme.circular_open::blocks/wysiwyg/content',
-        'anomaly.module.blocks::types.wrapper' => 'circular_open.theme.circular_open::blocks/wysiwyg/wrapper',
+        'anomaly.module.blocks::types/wrapper' => 'circular_open.theme.circular_open::blocks/wysiwyg/wrapper',
         'anomaly.module.blocks::blocks/wrapper' => 'circular_open.theme.circular_open::blocks/wysiwyg/wysiwyg',
         //'streams::errors/404' => 'module::errors/404',
         //'streams::errors/500' => 'module::errors/500',
