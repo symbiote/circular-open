@@ -1,23 +1,26 @@
 {% set bg = (block.switch_background.true) ? 'reversed' : '' %}
 
 <div class="{{ bg }}">
-<div class="container">
-    {% if block.title|length %}
-        <div class="text-center">
-            <h2>{{ block.title }}</h2>
-        </div>
-    {% endif %}
-
-    <div class="row">
-        {% for card in block.four_column_card %}
-            <div class="col-6 col-md-3" data-aos="fade-down" data-aos-duration="1000">
-                {{ img(card.image).class('img-responsive')|raw }}
-                <h4>{{ card.title }}</h4>
-                <p>{{ card.summary }}</p>
+    <div class="container">
+        {% if block.title|length %}
+            <div class="text-center">
+                <h2>{{ block.title }}</h2>
             </div>
-        {% endfor %}
+        {% endif %}
+
+        <div class="row">
+            {% for card in block.four_column_card %}
+                <div class="col-6 col-md-3" data-aos="fade-down" data-aos-duration="1000">
+                    {{ img(card.image).class('img-responsive')|raw }}
+                    <h4>{{ card.title }}</h4>
+                    <p>{{ card.summary }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="mt-5 text-center">
+            <a href="{{ block.cta_link|raw }}" class="button">{{ block.cta_label|raw }}</a>
+        </div>
     </div>
-</div>
 
 </div>
 

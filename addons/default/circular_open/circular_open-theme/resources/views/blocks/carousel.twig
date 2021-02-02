@@ -7,10 +7,10 @@
         {% for slide in block.slides %}
         <div>
             <div class="row">
-                <div class="col-6 col-md-6">
+                <div class="col-12 col-md-6">
                     {{ img(slide.image).class('img-responsive')|raw }}
                 </div>
-                <div class="col-6 col-md-6">
+                <div class="col-12 col-md-6">
                     {{ slide.content|raw }}
                     {% if slide.title %}
                         <h4>{{ slide.title }}</h4>

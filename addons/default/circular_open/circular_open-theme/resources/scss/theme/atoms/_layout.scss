@@ -15,7 +15,7 @@ main {
 
 // block
 .block {
-    margin: 6rem 0;
+    // margin: 6rem 0;
 
     @include media-breakpoint-down(md) {
         margin: 1rem 0;
@@ -106,4 +106,8 @@ button {
 
 .container-fluid {
     padding: 0;
+}
+
+.lh-30 {
+    line-height: 32px;
 }

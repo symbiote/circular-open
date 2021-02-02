@@ -3,11 +3,11 @@
 <div class="banner {{ bg }}" data-aos="fade-up" data-aos-duration="1000">
     <div class="container">
         {{ block.content|raw }}
-    </div>
-
-    <div class="button-container text-center">
-        {% if block.cta_link|length %}
-            <a href="{{ block.cta_label }}" class="button">{{ block.cta_label|length ? block.cta_label : 'More info' }}</a>
-        {% endif %}
+    
+        <div class="mt-5 text-center">
+            {% if block.cta_link|length %}
+                <a href="{{ block.cta_label }}" class="button">{{ block.cta_label|length ? block.cta_label : 'More info' }}</a>
+            {% endif %}
+        </div>
     </div>
 </div>
