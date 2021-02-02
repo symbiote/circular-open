@@ -1,0 +1,27 @@
+<div class="row text-muted">
+    <div class="col-12 col-md-8">
+        <h3>{{ block.title }}</h3>
+        <h5>{{ block.footer_subtitle }}</h5>
+        <div>
+            {{ block.footer_info|raw }}
+        </div>
+    </div>
+    
+    <div class="col-6 col-md-2 offset-md-2 mb-3">
+        {% set links = links('footer').get() %}
+        {% if links|length %}
+            <h4>Extra</h4>
+            <ul>
+                {% for link in links.where('parent_id', 0) %}
+                    <li><a href="{{ link.url }}" target="{{ link.target }}">{{ link.title }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</div>
+
+<p>&copy;{{ 'now'|date('Y') }} {{block.footer_copyright|raw ?: ' Symbiote, All rights reserved.' }}</p>
+
+<div class="col-12 acknowledgement">
+    <p>{{block.footer_bottom|raw ?: '' }}</p>
+</div>

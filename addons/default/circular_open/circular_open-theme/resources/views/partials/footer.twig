@@ -1,27 +1,5 @@
 <footer class="footer">
- <div class="container text-muted">
-    <div class="row text-muted">
-        <div class="col-12 col-md-8">
-            <h3>This website is Open-source</h3>
-            <h5>This website is Open-source Developed and hosted by Symbiote.</h5>
-            <div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            </div>
-        </div>
-        <div class="col-6 col-md-2 offset-md-2 mb-3" data-aos="fade-left" data-aos-duration="1000">
-            <h4>Extra</h4>
-            <ul>
-                <li><a href="{{ variable_value('social_media', 'instagram') }}">Instagram</a></li>
-                <li><a href="/tickets">Tickets</a></li>
-                <li><a href="/terminology">Terminology</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <p>&copy;{{ 'now'|date('Y') }} Symbiote, All rights reserved.</p>
-
-    <div class="col-12 acknowledgement" data-aos="fade-up" data-aos-duration="1000">
-        <p>We acknowledge the traditional owners of Country throughout Australia and their continuing connection to land, air, water and community.  We thank them for their custodianship and care of this land and pay our respects to elders past, present and emerging. Sovereignty was never ceded.</p>
+    <div class="container text-muted">
+        {{ blocks('footer')|raw }}
     </div>
 </footer>
