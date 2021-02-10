@@ -1,0 +1,13 @@
+.block--hero_block {
+
+    img {
+        max-width: 700px;
+        width: auto !important;
+        height: auto !important;
+
+        @include media-breakpoint-down(sm) {
+            max-width: 100%;
+        }
+
+    }
+}

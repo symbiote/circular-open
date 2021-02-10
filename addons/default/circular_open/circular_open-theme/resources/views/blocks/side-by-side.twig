@@ -1,0 +1,24 @@
+{% set alignment_image = (block.switch_position.true) ? 'offset-md-1 order-2 ' : '' %}
+{% set alignment_text = (block.switch_position.true) ? '' : 'offset-md-1 order-2 ' %}
+{% set fade_image = (block.switch_position.true) ? 'fade-left' : 'fade-right' %}
+{% set fade_text = (block.switch_position.true) ? 'fade-right' : 'fade-left' %}
+{% set bg = (block.switch_background.true) ? 'reversed' : '' %}
+
+<div class="{{ bg }} side-by-side-block">
+    <div class="container">
+        <div class="row">
+        <div class="col-12 col-md-7 {{ alignment_image }}" data-aos={{ fade_image }} data-aos-duration="1000">
+                {{ img(block.image).class('img-responsive')|raw }}
+                {# {{ block.photo.make.fit(200, 200)|raw }} #}
+            </div>
+            <div class="col-12 col-md-4 {{ alignment_text }}" data-aos={{ fade_text }} data-aos-duration="1000">
+                <h2>{{ block.title }}</h2>
+                <p>{{ block.blurb|raw }}</p>
+                {{ block.content|raw }}
+                {% if block.cta_link|length %}
+                    <a href="{{ block.cta_link }}" class="button">{{ block.cta_label }}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

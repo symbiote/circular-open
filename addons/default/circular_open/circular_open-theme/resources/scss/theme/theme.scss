@@ -1,0 +1,42 @@
+// Bootstrap
+@import "bootstrap/bootstrap";
+
+// Import variables
+@import "variables/colors";
+@import "variables/fonts";
+@import "variables/settings";
+
+
+// Import atoms
+@import "atoms/buttons";
+@import "atoms/mixins";
+@import "atoms/layout";
+@import "atoms/banner";
+@import "atoms/normalize";
+@import "atoms/layout";
+@import "atoms/typography";
+@import "atoms/images";
+@import "atoms/quote";
+@import "atoms/full_width_image";
+
+
+// Import molecules
+@import "molecules/card";
+
+// Import organisms
+@import "organisms/navigation";
+@import "organisms/footer";
+@import "organisms/featured_carousel";
+@import "organisms/search";
+@import "organisms/visit";
+@import "organisms/hero";
+@import "organisms/blocks";
+
+
+// Slick
+@import "slick-carousel/slick/slick";
+@import "slick-carousel/slick/slick-theme";
+@import "slick/slick-carousel";
+
+// AOS
+@import "../../../node_modules/aos//src/sass/aos"

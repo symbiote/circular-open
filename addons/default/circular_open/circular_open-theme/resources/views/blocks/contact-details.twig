@@ -1,0 +1,21 @@
+<div class="reversed pb-5 pt-5">
+    <div class="container text-center">
+        {% if block.title|length %}
+            <h2 class="block__title">
+                {{ block.title }}
+            </h2>
+        {% endif %}
+
+        <div class="row">
+            <div class="col-12 col-md-4 text-center" data-aos="fade-right" data-aos-duration="1000">
+                <a href="mailto:{{ block.email_address }}" target="_blank"><h3>{{ block.email_label }}</h3></a>
+            </div>
+            <div class="col-12 col-md-4 text-center" data-aos="fade-up" data-aos-duration="1000">
+                <a href="{{ block.website }}" target="_blank"><h3>{{ block.website_label }}</h3></a>
+            </div>
+            <div class="col-12 col-md-4 text-center" data-aos="fade-left" data-aos-duration="1000">
+                <a href="{{ block.instagram }}" target="_blank"><h3>{{ block.social_label }}</h3></a>
+            </div>
+        </div>
+    </div>
+</div>

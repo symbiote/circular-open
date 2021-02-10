@@ -1,0 +1,6 @@
+.side-by-side-block {
+    padding: 50px 0;
+    @include media-breakpoint-down(md) {
+        padding: 0;
+    }
+}

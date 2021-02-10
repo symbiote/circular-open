@@ -1,0 +1,156 @@
+// Common rules
+h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, button, span, label {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: $text-color;
+}
+
+// Headings
+h1, h2, h3, h4 {
+    font-family: "Spartan", sans-serif;
+    font-weight: 800;
+    line-height: normal;
+
+    a {
+        font-family: "Spartan", sans-serif;
+        font-weight: 800;
+        display: inline-block;
+    }
+}
+
+h5, span {
+    font-family: "Spartan", sans-serif;
+    font-weight: 400;
+    line-height: normal;
+
+    a {
+        font-family: "Spartan", sans-serif;
+        font-weight: 400;
+        display: inline-block;
+    }
+
+}
+
+h1 {
+    font-size: 6rem;
+
+    a {
+        font-size: 6rem;
+    }
+
+    @include media-breakpoint-down(md) {
+        font-size: 3rem;
+
+        a {
+            font-size: 3rem;
+        }
+    }
+}
+
+h2 {
+    font-size: 3.75rem;
+
+    a {
+        font-size: 3.75rem;
+    }
+
+    @include media-breakpoint-down(md) {
+        font-size: 1.875rem;
+
+        a {
+            font-size: 1.875rem;
+        }
+    }
+}
+
+h3 {
+    font-size: 2.75rem;
+
+    a {
+        font-size: 2.75rem;
+    }
+
+    @include media-breakpoint-down(md) {
+        font-size: 1.375rem;
+
+        a {
+            font-size: 1.375rem;
+        }
+    }
+}
+
+h4 {
+    font-size: 1.50rem;
+
+    a {
+        font-size: 1.50rem;
+    }
+
+    @include media-breakpoint-down(md) {
+        font-size: 1rem;
+
+        a {
+            font-size: 1rem;
+        }
+    }
+}
+
+h5 {
+    font-size: 1.1rem;
+
+    a {
+        font-size: 1.1rem;
+    }
+
+    @include media-breakpoint-down(md) {
+        font-size: 0.8rem;
+
+        a {
+            font-size: 0.8rem;
+        }
+    }
+}
+
+// Body
+p, a, b, table, label, ul, ol, li, input, textarea {
+    font-family: "Spartan", sans-serif;
+    font-size: 1rem;
+    line-height: 1.80;
+    font-weight: 400;
+}
+
+
+// Links
+a:not(.reversed a) {
+    text-decoration: underline;
+    display: inline-block;
+
+    &:hover {
+        color: $link-hover-color;
+        text-decoration: none;
+    }
+
+    &.no-style {
+        text-decoration: none;
+    }
+
+    h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, button, span, label {
+        text-decoration: underline;
+        cursor: pointer;
+
+        &:hover {
+            color: $link-hover-color;
+            text-decoration: none;
+        }
+    }
+}
+
+// Non-breaking copy, useful for preventing widows
+.text-nowrap {
+    white-space: nowrap;
+}
+
+.categories {
+    p { font-size: 0.8rem;}
+}
+

@@ -1,0 +1,16 @@
+<div class="container-fluid navigation">
+    {% include "theme::partials/search" %}
+
+    <input type="checkbox" id="nav" class="hamburger-nav-toggle-checkbox"/>
+    <label for="nav" class="hamburger-toggle-icon">
+        <i></i>
+        <i></i>
+        <i></i>
+    </label>
+
+
+    {{ structure()
+        .bootstrap4()
+        .listClass('nav__links')
+        .render()|raw }}
+</div>

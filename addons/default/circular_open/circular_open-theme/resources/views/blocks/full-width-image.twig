@@ -1,0 +1,7 @@
+<div class="reversed">
+    {% if block.text|length %}
+        <h2 class="pt-5">{{ block.text }}</h2>
+    {% endif %}
+
+    <img src="{{ img(block.image).url() }}" alt="" data-aos="fade-down" data-aos-duration="1000">
+</div>
