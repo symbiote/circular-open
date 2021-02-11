@@ -38,7 +38,17 @@
 {# Scripts #}
 {{ asset_add("theme.css", "theme::css/theme.css") }}
 
+{% if variable('google', 'google_analytics')|length %}
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ variable('google', 'google_analytics') }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', '{{ variable('google', 'google_analytics') }}');
+  </script>
+{% endif %}
 
 {# Include Asset Collections #}
 <style type="text/css">
