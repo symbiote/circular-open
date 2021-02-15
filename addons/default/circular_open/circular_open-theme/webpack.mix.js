@@ -16,8 +16,11 @@ mix
     .js('node_modules/vue/dist/vue.min.js', 'resources/js/vendor')
     .js('node_modules/bootstrap/dist/js/bootstrap.min.js', 'resources/js/vendor')
     .js('resources/js/theme/*.js', '/resources/js/scripts.js')
+    // Slick carousel items
     .copy('node_modules/slick-carousel/slick/slick.min.js', 'resources/js/vendor')
-    // .sass('resources/scss/theme/bootstrap.scss', 'resources/css')
+    .copy('node_modules/slick-carousel/slick/fonts/slick.woff', '../../../../public/fonts')
+    .copy('node_modules/slick-carousel/slick/fonts/slick.ttf', '../../../../public/fonts')
+    .copy('node_modules/slick-carousel/slick/ajax-loader.gif', '../../../../public')
     .sass('resources/scss/theme/theme.scss', 'resources/css')
     .copyDirectory('resources/fonts', '../../../../public/fonts')
     .copyDirectory('resources/images', '../../../../public/images')
