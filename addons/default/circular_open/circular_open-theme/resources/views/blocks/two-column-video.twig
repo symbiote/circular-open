@@ -5,7 +5,7 @@
         {% endif %}
 
         <div class="row">
-            {% for vid in block.video_embed %}
+            {% for vid in block.video_embed_multiple %}
                 <div class="col-12 col-md-6">
                     <iframe width="100%" height="350" data-aos="fade-up" data-aos-duration="1000" src="{{ vid.video.embed }}?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
