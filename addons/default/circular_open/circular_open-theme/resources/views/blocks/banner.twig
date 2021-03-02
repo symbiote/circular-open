@@ -6,7 +6,7 @@
     
         <div class="mt-5 text-center">
             {% if block.cta_link|length %}
-                <a href="{{ block.cta_label }}" class="button">{{ block.cta_label|length ? block.cta_label : 'More info' }}</a>
+                <a href="{{ block.cta_link }}" class="button">{{ block.cta_label|length ? block.cta_label : 'More info' }}</a>
             {% endif %}
         </div>
     </div>
