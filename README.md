@@ -17,5 +17,6 @@
 
 ## Documentation
 
-- [User documentation](https://github.com/symbiote/circular-open/blob/documentation/circular-open/docs/en/user.md "user doc")
-- [Developer documentation](https://github.com/symbiote/circular-open/blob/documentation/circular-open/docs/en/developer.md "dev doc")
+- [User documentation](https://github.com/symbiote/circular-open/blob/master/circular-open/docs/en/user.md "user doc")
+- [Developer documentation](https://github.com/symbiote/circular-open/blob/master/circular-open/docs/en/developer.md "dev doc")
+- [Maintenance](https://github.com/symbiote/circular-open/blob/master/circular-open/docs/en/maintenance.md "dev doc")
