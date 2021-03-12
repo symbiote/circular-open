@@ -17,6 +17,16 @@
 <meta name="generator" content="{{ config_get('streams::distribution.name') }}"/>
 <meta name="description" content="{{ trans(template.meta_description) }}"/>
 
+<meta property="og:title" content="{{ config_get('streams::distribution.name') }}">
+<meta property="og:description" content="{{ trans(template.meta_description) }}">
+<meta property="og:image" content="{{ url_to("images/by-product-meta-image.png") }}">
+<meta property="og:url" content="{{ url_to("/") }}">
+
+<meta name="twitter:title" content="{{ config_get('streams::distribution.name') }} ">
+<meta name="twitter:description" content=" {{ trans(template.meta_description) }}">
+<meta name="twitter:image" content="{{ url_to("images/by-product-meta-image.png") }}">
+<meta name="twitter:card" content="summary_large_image">
+
 {{ template.includes.render('meta')|raw }}
 
 <title>
